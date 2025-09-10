@@ -1,0 +1,37 @@
+Obstaculos? .exe ?!
+
+🔹 Ideas realistas para una versión 2:
+
+Sistema de puntuación
+Cada manzana = +10 puntos.
+
+Mostrar puntuación en pantalla.
+Guardar récords en un archivo highscore.txt.
+👉 Esto le da rejugabilidad.
+
+Dificultad progresiva
+La serpiente empieza lenta, pero la velocidad aumenta cada X manzanas.
+O, en menú: elegir Fácil / Normal / Difícil → cambia el MOVE_INTERVAL.
+
+Más estética
+Ojos animados de la serpiente que miren hacia donde se mueve.
+Fondo con color o patrón en lugar de cuadrícula blanca/gris.
+
+Animación cuando aparece una manzana.
+Sonido
+Sonido corto al comer.
+Sonido de “game over”.
+👉 Con pygame.mixer.Sound.
+
+Modo victoria
+Detectar si el mapa está lleno → mostrar mensaje especial “¡Ganaste!”.
+Esto ya lo hablamos, se puede dejar pulido en v2.
+
+Pequeño menú de opciones
+No solo "Start", también:
+“Jugar fácil”
+“Jugar difícil” (aunque sea la misma lógica cambiando la velocidad).
+
+🔹 Bonus (si quieres dar un salto extra en v2)
+Pausar el juego con tecla P.
+Sprites personalizados (en carpeta assets/ en lugar de rectángulos).
