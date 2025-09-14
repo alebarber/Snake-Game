@@ -18,6 +18,8 @@ snake = Snake()
 food = Food(snake.body)
 game_over = False # Crear variable de estado del juego
 victory = False # Crear variable de estado de victoria
+pause = False # Crear variable de pausa
+score = 0 # Crear variable de puntuación
 
 # Timer para movimiento
 MOVE_EVENT = pygame.USEREVENT + 1
@@ -31,7 +33,7 @@ while True:
             sys.exit()
 
         # Mover la serpiente cada MOVE_INTERVAL ms
-        elif event.type == MOVE_EVENT and not game_over and not victory:
+        elif event.type == MOVE_EVENT and not game_over and not victory and not pause:
             # Mover serpiente
             new_head = snake.move()
 
@@ -44,6 +46,7 @@ while True:
                 # Comer comida: eliminar la que tocó y añadir 2 nuevas
                 food.positions.remove(new_head)
                 success = food.add_food(amount=2, snake_body=snake.body)
+                score += 10
                 if not success:
                     victory = True
 
@@ -65,6 +68,9 @@ while True:
                 food = Food(snake.body)
                 game_over = False
                 victory = False
+                score = 0
+            elif event.key == pygame.K_p and not (game_over or victory):
+                pause = not pause  # Alternar pausa
 
     # Fondo negro
     screen.fill(BLACK)
@@ -103,16 +109,27 @@ while True:
     # Mensaje Game Over
     if game_over:
         font = pygame.font.SysFont(None, 30)
-        text = font.render("GAME OVER! Presiona R para reiniciar", True, WHITE)
+        text = font.render(f"GAME OVER! Puntos: {score} | Presiona R para reiniciar", True, WHITE)
         x = WIDTH // 2 - text.get_width() // 2
         y = HEIGHT // 2 - text.get_height() // 2
         screen.blit(text, (x, y))
     elif victory:
         font = pygame.font.SysFont(None, 30)
-        text = font.render("¡Ganaste! 🎉 Presiona R para reiniciar", True, GREEN)
+        text = font.render(f"¡Ganaste! 🎉 Puntos: {score} | Presiona R para reiniciar", True, GREEN)
         x = WIDTH // 2 - text.get_width() // 2
         y = HEIGHT // 2 - text.get_height() // 2
         screen.blit(text, (x, y))
+    elif pause:
+        font = pygame.font.SysFont(None, 40)
+        text = font.render("PAUSA (P para continuar)", True, WHITE)
+        x = WIDTH // 2 - text.get_width() // 2
+        y = HEIGHT // 2 - text.get_height() // 2
+        screen.blit(text, (x, y))
+
+    # Mostrar puntuación en pantalla
+    font_score = pygame.font.SysFont(None, 30)
+    score_text = font_score.render(f"Puntos: {score}", True, WHITE)
+    screen.blit(score_text, (10, 10))  # Esquina superior izquierda
 
     pygame.display.flip() # Actualizar pantalla
     clock.tick(FPS) # Mantener FPS
