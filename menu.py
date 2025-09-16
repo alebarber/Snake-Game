@@ -17,6 +17,20 @@ def main_menu(screen):
         info_text = font_info.render("Presiona ENTER para empezar Fácil", True, WHITE)
         screen.blit(info_text, (WIDTH//2 - info_text.get_width()//2, HEIGHT//2))
 
+        # --- Instrucciones de controles ---
+        instructions = [
+            "Controles:",
+            "Flechas -> Mover",
+            "P -> Pausar / Continuar",
+            "R -> Reiniciar tras perder/ganar",
+            "Cerrar ventana -> Salir"
+        ]
+
+        for i, line in enumerate(instructions):
+            instr_text = font_info.render(line, True, WHITE)
+            screen.blit(instr_text, (WIDTH//2 - instr_text.get_width()//2, HEIGHT//2 + 50 + i*25))
+
+
         pygame.display.flip() # Actualizar pantalla
 
         for event in pygame.event.get():
