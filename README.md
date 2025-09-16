@@ -1,23 +1,21 @@
 # Snake Game en Python
 
-Esta es la primera versión del clásico juego Snake, desarrollada en Python utilizando Pygame. La versión inicial funciona como una maqueta jugable, con un solo nivel y un diseño simple, ideal para pruebas y aprendizaje.  
+Clásico juego Snake, desarrollado en Python utilizando Pygame. La versión inicial funciona como una maqueta jugable, con un solo nivel y un diseño simple, ideal para pruebas y aprendizaje.  
 
-*Características de esta versión:*  
-
-- Serpiente que va aumentando de tamaño al comer
-- Comida que aparece en múltiples posiciones.
-- Colisiones con bordes y consigo misma.
-- Cuadrícula y pantalla de juego básicas.
+## 📌 Versión 1.1
+- Sistema de puntuación (+10 puntos por cada manzana).  
+- Posibilidad de **pausar el juego** con la tecla `P`.  
+- Mensajes de **Game Over** y **Victoria** muestran tu puntuación final.  
 
 ---
 
 ## Capturas del juego
 
-![Menú principal](assets/v1_img1.PNG)  
+![Menú principal](assets/v1.1_img1.PNG)  
   
-![Gameplay](assets/v1_img2.PNG)  
+![Gameplay](assets/v1.1_img2.PNG)  
   
-![Gameplay](assets/v1_img3.PNG)
+![Gameplay](assets/v1.1_img3.PNG)
 
 ---
 
@@ -44,4 +42,4 @@ python main.py
 - Guardado de puntuaciones y récords.
 - Mejor diseño visual (sprites para la serpiente y manzanas).
 - Modo de juego con obstáculos y niveles progresivos.
-- Versión ejecutable (.exe) para Windows y binarios para Mac/Linux.
+- Versión ejecutable .exe para Windows y binario para Mac/Linux.
